@@ -49,7 +49,7 @@ export function Chrome() {
   return (
     <>
       {/* top bar */}
-      <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-4 mix-blend-difference md:px-8">
+      <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-4 md:px-8">
         <a href="#top" data-cursor="TOP" className="flex items-center gap-3">
           <img
             src={blobGold}
@@ -58,7 +58,7 @@ export function Chrome() {
             height={912}
             className="floaty h-9 w-auto md:h-11"
           />
-          <span className="display text-lg text-white md:text-xl">Woblo</span>
+          <span className="display text-lg md:text-xl">Woblo</span>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((n) => (
@@ -66,7 +66,7 @@ export function Chrome() {
               key={n.label}
               href={n.href}
               data-cursor="GO"
-              className="label text-white/90 transition-opacity hover:opacity-50"
+              className="label text-foreground transition-opacity hover:opacity-50"
             >
               {n.label}
             </a>
@@ -74,7 +74,7 @@ export function Chrome() {
         </nav>
         <button
           onClick={() => setOpen(true)}
-          className="label text-white md:hidden"
+          className="label md:hidden"
           aria-label="Open menu"
         >
           Menu

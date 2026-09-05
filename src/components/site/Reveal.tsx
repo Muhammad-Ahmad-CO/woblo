@@ -40,8 +40,7 @@ export function RevealWords({
           <motion.span
             className="inline-block"
             initial={{ y: "110%" }}
-            whileInView={{ y: "0%" }}
-            viewport={{ once: true, margin: "-10% 0px" }}
+            animate={{ y: "0%" }}
             transition={{
               duration: 0.9,
               delay: delay + i * 0.05,
