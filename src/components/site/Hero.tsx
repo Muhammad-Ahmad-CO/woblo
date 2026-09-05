@@ -14,7 +14,7 @@ export function Hero() {
 
   return (
     <section id="top" ref={ref} className="relative min-h-screen overflow-hidden">
-      <div className="relative z-20 px-4 pt-28 md:px-8 md:pt-32">
+      <div className="relative z-20 px-4 pt-24 md:px-8 md:pt-28">
         <h1 className="display max-w-[15ch] text-[13vw] leading-[0.84] md:text-[6.4vw]">
           <RevealWords text="We evoke emotions through aesthetics, WebGL and 3D" />
         </h1>
@@ -22,7 +22,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-6 max-w-sm text-base text-foreground/70 md:text-lg"
+          className="ml-16 mt-5 max-w-sm text-base text-foreground/70 md:text-lg"
         >
           Websites, digital spaces,
           <br />
@@ -33,7 +33,7 @@ export function Hero() {
       {/* rocks band */}
       <motion.div
         style={{ y: rockY, scale: rockScale }}
-        className="absolute inset-x-0 bottom-0 z-0 h-[62vh] origin-bottom"
+        className="absolute inset-x-0 bottom-0 z-0 h-[52vh] origin-bottom"
       >
         <img
           src={rocks}
@@ -51,12 +51,12 @@ export function Hero() {
         width={1200}
         height={912}
         style={{ y: blobY, rotate: blobRotate }}
-        className="pointer-events-none absolute bottom-[6vh] left-1/2 z-10 w-[78vw] max-w-[900px] -translate-x-1/2 drop-shadow-2xl md:w-[52vw]"
+        className="pointer-events-none absolute bottom-[2vh] left-1/2 z-10 w-[78vw] max-w-[900px] -translate-x-1/2 drop-shadow-2xl md:w-[52vw]"
         data-cursor="TOUCH"
       />
 
       <div className="absolute inset-x-0 bottom-6 z-20 flex justify-center">
-        <span className="label text-foreground/50">( Scroll to explore )</span>
+        <span className="label text-white/70">( Scroll to explore )</span>
       </div>
     </section>
   );
