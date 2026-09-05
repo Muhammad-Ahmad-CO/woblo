@@ -59,7 +59,7 @@ export function Contact() {
         </Reveal>
       </div>
 
-      <div className="hair-t flex flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-ink-foreground/50 md:flex-row md:px-8">
+      <div className="hair-t flex flex-col items-center justify-between gap-2 px-4 py-6 pb-16 text-xs text-ink-foreground/50 md:flex-row md:px-8">
         <span>© {new Date().getFullYear()} Woblo Studio</span>
         <span className="label">Made with elaborate animation</span>
       </div>

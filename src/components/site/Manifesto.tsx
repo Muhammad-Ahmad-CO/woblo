@@ -10,7 +10,7 @@ export function Manifesto() {
   const rotate = useTransform(scrollYProgress, [0, 1], [-14, 14]);
 
   return (
-    <section id="about" ref={ref} className="relative overflow-hidden px-4 py-24 md:px-8 md:py-36">
+    <section id="about" ref={ref} className="relative overflow-hidden px-4 py-24 md:px-8 md:py-36 md:pl-24">
       <motion.img
         src={blobDark}
         alt="Dark foil infinity sculpture"
