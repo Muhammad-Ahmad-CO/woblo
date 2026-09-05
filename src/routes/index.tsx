@@ -1,24 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Chrome } from "@/components/site/Chrome";
+import { Cursor } from "@/components/site/Cursor";
+import { Hero } from "@/components/site/Hero";
+import { Manifesto } from "@/components/site/Manifesto";
+import { Works } from "@/components/site/Works";
+import { Spark } from "@/components/site/Spark";
+import { Services } from "@/components/site/Services";
+import { Achievements } from "@/components/site/Achievements";
+import { Clients } from "@/components/site/Clients";
+import { Contact } from "@/components/site/Contact";
+import { Marquee } from "@/components/site/Marquee";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "Woblo — Creative Digital Studio for Sites, 3D & WebGL";
+const DESCRIPTION =
+  "Woblo is a creative studio making websites unlike everyone else's — elaborate animation, WebGL, CGI graphics, interfaces and visual concepts in 5 days.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative">
+      <Cursor />
+      <Chrome />
+      <Hero />
+      <Manifesto />
+      <div className="hair-t hair-b py-4">
+        <Marquee items={["Sites", "Interfaces", "CGI", "WebGL", "Spark"]} duration={30} />
+      </div>
+      <Works />
+      <Spark />
+      <Services />
+      <Achievements />
+      <Clients />
+      <Contact />
+    </main>
   );
 }
