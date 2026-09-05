@@ -49,7 +49,11 @@ export function Chrome() {
   return (
     <>
       {/* top bar */}
-      <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-4 md:px-8">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-4 transition-colors duration-500 md:px-8 ${
+          scrolled ? "border-b border-foreground/10 bg-background/85 backdrop-blur-xl" : ""
+        }`}
+      >
         <a href="#top" data-cursor="TOP" className="flex items-center gap-3">
           <img
             src={blobGold}
@@ -94,9 +98,9 @@ export function Chrome() {
       </button>
 
       {/* bottom-left scroll ticker */}
-      <div className="pointer-events-none fixed bottom-6 left-6 z-40 hidden items-center gap-2 md:flex">
-        <span className="spin-slow inline-block h-3 w-3 border border-foreground/50" />
-        <span className="label text-foreground/60">{scrolled ? "Keep going" : "Scroll"}</span>
+      <div className="pointer-events-none fixed bottom-6 left-6 z-40 hidden items-center gap-2 mix-blend-difference md:flex">
+        <span className="spin-slow inline-block h-3 w-3 border border-white/60" />
+        <span className="label text-white/70">{scrolled ? "Keep going" : "Scroll"}</span>
       </div>
 
       {/* bottom-right contact chip */}
