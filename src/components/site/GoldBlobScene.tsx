@@ -25,14 +25,8 @@ function Blob() {
   return (
     <group ref={group}>
       <mesh castShadow>
-        <icosahedronGeometry args={[1.35, 64]} />
-        <MeshDistortMaterial
-          distort={0.38}
-          speed={1.1}
-          color="#e8b923"
-          metalness={1}
-          roughness={0.18}
-        />
+        <icosahedronGeometry args={[1.35, 8]} />
+        <meshStandardMaterial color="#e8b923" metalness={0.9} roughness={0.2} />
       </mesh>
     </group>
   );
@@ -44,8 +38,9 @@ export default function GoldBlobScene() {
       dpr={[1, 2]}
       camera={{ position: [0, 0, 4.2], fov: 45 }}
       gl={{ alpha: true, antialias: true }}
-      style={{ background: "transparent" }}
+      
     >
+      <color attach="background" args={["#ff0000"]} />
       <ambientLight intensity={0.6} />
       <directionalLight position={[3, 4, 5]} intensity={2.2} color="#fff3c4" />
       <directionalLight position={[-4, -2, -3]} intensity={1.1} color="#ff9a3c" />
