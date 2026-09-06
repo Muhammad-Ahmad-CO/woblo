@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { RevealWords } from "./Reveal";
 import rocks from "@/assets/rocks.jpg";
-import blobGold from "@/assets/blob-gold.png";
+
+const GoldBlobScene = lazy(() => import("./GoldBlobScene"));
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -11,6 +12,8 @@ export function Hero() {
   const rockScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const blobY = useTransform(scrollYProgress, [0, 1], ["0%", "-35%"]);
   const blobRotate = useTransform(scrollYProgress, [0, 1], [0, 28]);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   return (
     <section id="top" ref={ref} className="relative min-h-screen overflow-hidden">
@@ -44,16 +47,18 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* gold blob */}
-      <motion.img
-        src={blobGold}
-        alt="Golden 3D sculpture"
-        width={1200}
-        height={912}
+      {/* gold 3D blob */}
+      <motion.div
         style={{ y: blobY, rotate: blobRotate }}
-        className="pointer-events-none absolute bottom-[2vh] left-1/2 z-10 w-[78vw] max-w-[900px] -translate-x-1/2 drop-shadow-2xl md:w-[52vw]"
+        className="absolute bottom-[2vh] left-1/2 z-10 h-[62vh] w-[78vw] max-w-[900px] -translate-x-1/2 md:w-[52vw]"
         data-cursor="TOUCH"
-      />
+      >
+        {mounted ? (
+          <Suspense fallback={null}>
+            <GoldBlobScene />
+          </Suspense>
+        ) : null}
+      </motion.div>
 
       <div className="absolute inset-x-0 bottom-6 z-20 flex justify-center">
         <span className="label text-white/70">( Scroll to explore )</span>
