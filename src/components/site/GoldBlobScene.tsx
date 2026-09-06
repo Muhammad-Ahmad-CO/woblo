@@ -49,23 +49,7 @@ export default function GoldBlobScene() {
       <ambientLight intensity={0.6} />
       <directionalLight position={[3, 4, 5]} intensity={2.2} color="#fff3c4" />
       <directionalLight position={[-4, -2, -3]} intensity={1.1} color="#ff9a3c" />
-      <Environment>
-        <Lightformer intensity={3} position={[0, 4, 2]} scale={[8, 8, 1]} color="#fff6d5" />
-        <Lightformer
-          intensity={2}
-          color="#ffb547"
-          position={[-5, 0, 1]}
-          rotation-y={Math.PI / 2}
-          scale={[14, 3, 1]}
-        />
-        <Lightformer
-          intensity={1.4}
-          color="#ffffff"
-          position={[5, 1, -1]}
-          rotation-y={-Math.PI / 2}
-          scale={[14, 3, 1]}
-        />
-      </Environment>
+      {/* env */}
     </Canvas>
   );
 }
