@@ -10,7 +10,6 @@ function Blob() {
 
   useFrame((_, rawDelta) => {
     const dt = Math.min(rawDelta, 0.05);
-    // pointer is -1..1 across the canvas; rotate towards it, stay in place
     target.current.y = pointer.x * 0.9;
     target.current.x = -pointer.y * 0.55;
     const g = group.current;
@@ -18,15 +17,21 @@ function Blob() {
     const k = 1 - Math.exp(-4 * dt);
     g.rotation.y += (target.current.y - g.rotation.y) * k;
     g.rotation.x += (target.current.x - g.rotation.x) * k;
-    g.rotation.z += 0.06 * dt;
+    g.rotation.z += 0.05 * dt;
     g.position.y = Math.sin(performance.now() / 1600) * 0.08;
   });
 
   return (
     <group ref={group}>
-      <mesh castShadow>
-        <icosahedronGeometry args={[1.35, 8]} />
-        <meshStandardMaterial color="#e8b923" metalness={0.9} roughness={0.2} />
+      <mesh>
+        <torusKnotGeometry args={[1, 0.42, 220, 40, 2, 3]} />
+        <MeshDistortMaterial
+          distort={0.22}
+          speed={1.1}
+          color="#e2a615"
+          metalness={1}
+          roughness={0.14}
+        />
       </mesh>
     </group>
   );
@@ -36,15 +41,30 @@ export default function GoldBlobScene() {
   return (
     <Canvas
       dpr={[1, 2]}
-      camera={{ position: [0, 0, 4.2], fov: 45 }}
+      camera={{ position: [0, 0, 4.6], fov: 45 }}
       gl={{ alpha: true, antialias: true }}
-      
     >
-      <color attach="background" args={["#ff0000"]} />
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[3, 4, 5]} intensity={2.2} color="#fff3c4" />
-      <directionalLight position={[-4, -2, -3]} intensity={1.1} color="#ff9a3c" />
-      {/* env */}
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[3, 4, 5]} intensity={2.4} color="#fff3c4" />
+      <directionalLight position={[-4, -2, -3]} intensity={1.2} color="#ff9a3c" />
+      <Blob />
+      <Environment>
+        <Lightformer intensity={3} position={[0, 4, 2]} scale={[8, 8, 1]} color="#fff6d5" />
+        <Lightformer
+          intensity={2}
+          color="#ffb547"
+          position={[-5, 0, 1]}
+          rotation-y={Math.PI / 2}
+          scale={[14, 3, 1]}
+        />
+        <Lightformer
+          intensity={1.4}
+          color="#ffffff"
+          position={[5, 1, -1]}
+          rotation-y={-Math.PI / 2}
+          scale={[14, 3, 1]}
+        />
+      </Environment>
     </Canvas>
   );
 }
