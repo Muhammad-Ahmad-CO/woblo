@@ -28,9 +28,9 @@ function Blob() {
         <MeshDistortMaterial
           distort={0.22}
           speed={1.1}
-          color="#e2a615"
-          metalness={1}
-          roughness={0.14}
+          color="#facc15"
+          metalness={0.85}
+          roughness={0.18}
         />
       </mesh>
     </group>
