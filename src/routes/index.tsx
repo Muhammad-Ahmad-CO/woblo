@@ -10,6 +10,9 @@ import { Achievements } from "@/components/site/Achievements";
 import { Clients } from "@/components/site/Clients";
 import { Contact } from "@/components/site/Contact";
 import { Marquee } from "@/components/site/Marquee";
+import { Process } from "@/components/site/Process";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { Grain } from "@/components/site/Grain";
 
 const TITLE = "Woblo — Creative Digital Studio for Sites, 3D & WebGL";
 const DESCRIPTION =
