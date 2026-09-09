@@ -35,6 +35,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative">
+      <Grain />
+      <ScrollProgress />
       <Cursor />
       <Chrome />
       <Hero />
@@ -45,6 +47,7 @@ function Index() {
       <Works />
       <Spark />
       <Services />
+      <Process />
       <Achievements />
       <Clients />
       <Contact />
